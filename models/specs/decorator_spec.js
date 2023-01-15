@@ -70,7 +70,7 @@ describe('Decorator', function() {
         decorator.addCanToStock(paintCan2)
         decorator.addCanToStock(paintCan3)
         decorator.addCanToStock(paintCan4)
-        const actual = decorator.hasPainted(room)
+        const actual = decorator.hasBeenPainted(room)
         const expected = true
         assert.deepStrictEqual(actual, expected)
     })
@@ -78,18 +78,23 @@ describe('Decorator', function() {
 
     // should be able to decrease amount of paint in stock when painting a room
     //add a bunch of paint
-    //call decrease stock function
-    it('should be able to decrease paint in stock after painting', function() {
+    //paint the room
+    //decrease the stock. This function will remove however many litres you pass in and return a new totalLitresInStock value
+    it('should be able to decrease paint in stock when painting a room', function() {
         decorator.addCanToStock(paintCan1)
         decorator.addCanToStock(paintCan2)
         decorator.addCanToStock(paintCan3)
         decorator.addCanToStock(paintCan4)
-        const actual = decorator.decreaseStock(stockList, room)
+        decorator.hasBeenPainted(room)
+        const actual = decorator.decreaseStock(room)
         const expected = 15
         assert.deepStrictEqual(actual, expected)
     })
 
 
     // should be able to remove empty paint cans from stock
+    xit('should be able to remove empty paint cans from stock', function() {
+
+    })
 })
 

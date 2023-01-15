@@ -29,9 +29,10 @@ Decorator.prototype.canPaintRoom = function(room) {
 
 
 //check if the room can be painted
-//if true, call the paint function. Put the value of what is returned when the paint function is called into a variable
+//if true, call the paint function.
+//Put the value of what is returned when the paint function is called into a variable
 //return the variable
-Decorator.prototype.hasPainted = function(room) {
+Decorator.prototype.hasBeenPainted = function(room) {
     if (this.canPaintRoom(room) === true) {
         hasPainted = room.paint()
         return hasPainted
@@ -40,13 +41,15 @@ Decorator.prototype.hasPainted = function(room) {
     }
 }
 
-//will need to pass in a stock list AND a room
-//need total litres in stock, and the area of the room
-//check a room can be painted (or are we assuming it can be already??)
-//once a room has been painted, subtract the area of the room from the total litres in stock
-//return the value of the total litres remaining
-Decorator.prototype.decreaseStock = function (stockList, room) {
-
+// will need to pass in a room - don't need stockList as it comes with a decorator
+// we are assuming the room can be painted, as this will already have been checked
+// need total litres in stock, and the area of the room
+// once a room has been painted, subtract the area of the room (paint used) from the total litres in stock
+// return the value of the total litres remaining
+Decorator.prototype.decreaseStock = function (room) {
+    total = this.totalLitresInStock()
+    const paintUsed = room.areaInSqMetres
+    return total - paintUsed
 }
 
 module.exports = Decorator;

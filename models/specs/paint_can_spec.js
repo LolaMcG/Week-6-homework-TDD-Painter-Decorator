@@ -31,5 +31,12 @@ describe('PaintCan', function() {
         const expected = 0;
         assert.strictEqual(actual, expected)
     })
+
+    it('should be able to decrease the amount of paint in a paint can', function() {
+        amountToDecrease = 8
+        const actual = paintCan.decreasePaint(amountToDecrease)
+        const expected = 2
+        assert.strictEqual(actual, expected)
+        })
 })
 
