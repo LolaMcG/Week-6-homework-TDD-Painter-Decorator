@@ -5,7 +5,7 @@ const Room = function (areaInSqMetres){
 
 //Don't need to pass anything in as a parameter as the room comes with a default 'isPainted' value built in
 //When this function is called, return isPainted as 'true'
-Room.prototype.paint = function () {
+Room.prototype.paint = function() {
     return this.isPainted = true;
 }
 
